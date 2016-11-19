@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n" />
+		</layout>
+	</appender>
+	<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${module.home}/logs/${logfile.name}" />
+		<!-- <param name="File" value="${xy.root}/WEB-INF/logs/main.log" /> -->
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="com.lenovo">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>	
+	<logger name="java.sql">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.apache.ibatis">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.mybatis">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.springframework">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.hibernate">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.apache.commons">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.eclipse.jetty">
+		<level value="INFO" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.apache.zookeeper">
+   		<level value="INFO" />
+   		<appender-ref ref="file" />
+	</logger>
+	<root>
+		<priority value="INFO" />
+		 <appender-ref ref="console" />
+	</root>
+</log4j:configuration>
